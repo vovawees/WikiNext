@@ -1,0 +1,3 @@
+[alias]
+dev = ["run", "--package", "wikinext-server", "--bin", "wikinext"]
+lint = ["clippy", "--all-targets", "--all-features", "--", "-D", "warnings"]

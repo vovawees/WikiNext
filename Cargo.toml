@@ -1,0 +1,31 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/core",
+    "crates/store",
+    "crates/render",
+    "crates/infra",
+    "crates/app",
+    "crates/server",
+]
+default-members = ["crates/server"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "AGPL-3.0-or-later"
+publish = false
+
+[workspace.dependencies]
+wikinext-core = { path = "crates/core", version = "0.1.0" }
+wikinext-store = { path = "crates/store", version = "0.1.0" }
+wikinext-render = { path = "crates/render", version = "0.1.0" }
+wikinext-infra = { path = "crates/infra", version = "0.1.0" }
+wikinext-app = { path = "crates/app", version = "0.1.0" }
+wikinext-server = { path = "crates/server", version = "0.1.0" }
+
+thiserror = "2.0.19"
+serde = { version = "1.0.229", features = ["derive"] }
+toml = "1.1.4"
+tracing = "0.1.44"
+tracing-subscriber = "0.3.23"
