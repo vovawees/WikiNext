@@ -4,7 +4,7 @@ members = [
     "crates/core",
     "crates/store",
     "crates/render",
-    "crates/infra",
+    "crates/search",
     "crates/app",
     "crates/server",
 ]
@@ -15,18 +15,35 @@ version = "0.1.0"
 edition = "2024"
 license = "AGPL-3.0-or-later"
 publish = false
+rust-version = "1.97.1"
 
 [workspace.dependencies]
 wikinext-core = { path = "crates/core", version = "0.1.0" }
 wikinext-store = { path = "crates/store", version = "0.1.0" }
 wikinext-render = { path = "crates/render", version = "0.1.0" }
-wikinext-infra = { path = "crates/infra", version = "0.1.0" }
+wikinext-search = { path = "crates/search", version = "0.1.0" }
 wikinext-app = { path = "crates/app", version = "0.1.0" }
 wikinext-server = { path = "crates/server", version = "0.1.0" }
 
-thiserror = "2.0.19"
+argon2 = { version = "0.5.3", features = ["std"] }
+axum = { version = "0.8.9", features = ["http1", "json", "tokio"] }
+clap = { version = "4.6.4", features = ["derive", "env"] }
+ftml = { version = "=1.41.0", default-features = false, features = ["html"] }
+http = "1.5.0"
+reqwest = { version = "0.13.4", default-features = false, features = ["json", "rustls"] }
 serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sqlx = { version = "0.9.0", default-features = false, features = ["macros", "migrate", "postgres", "runtime-tokio", "tls-rustls-ring-native-roots"] }
+thiserror = "2.0.19"
+tokio = { version = "1.53.1", features = ["fs", "macros", "net", "rt-multi-thread", "signal", "sync", "time"] }
 toml = "1.1.4"
+tower = "0.5.3"
+tower-http = "0.7.0"
 tracing = "0.1.44"
 tracing-subscriber = "0.3.23"
+url = "2.5.8"
 uuid = { version = "1.24.0", features = ["v4", "serde"] }
+wikidot-normalize = "=0.12.0"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"

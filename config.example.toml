@@ -1,2 +1,28 @@
+# Конфигурация для локальной разработки.
+# Секреты ниже нельзя использовать в production.
+
 [app]
-name = "wikinext"
+name = "WikiNEXT"
+
+[server]
+bind = "127.0.0.1:3000"
+request_timeout_ms = 10000
+shutdown_timeout_seconds = 20
+
+[database]
+url = "postgres://wikinext_app:wikinext-app-dev-password@127.0.0.1:5432/wikinext"
+# DDL DSN для migrate передаётся только через WIKINEXT_DATABASE_MIGRATION_URL.
+max_connections = 16
+acquire_timeout_ms = 5000
+
+[search]
+url = "http://127.0.0.1:7700"
+api_key = "wikinext-development-master-key"
+request_timeout_ms = 2000
+
+[storage]
+data_dir = "./data"
+
+[observability]
+filter = "wikinext=info,tower_http=info"
+format = "pretty"

@@ -1,5 +1,6 @@
 /target
 /config.toml
+/data
 .env
 *.swp
 .DS_Store
